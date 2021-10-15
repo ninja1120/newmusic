@@ -32,33 +32,33 @@ async def _human_time_duration(seconds):
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f""" ✨ ** مرحبًا {message.from_user.first_name} ** 
-✨ ** [{BOT_NAME}] (https://t.me/{BOT_USERNAME}) يتيح لك تشغيل الموسيقى في مجموعات من خلال الدردشات الصوتية الجديدة في Telegram! **
+        f"""b> 🎪 ** مرحبًا {message.from_user.first_name} ** \ n
+🎪 ** [{BOT_NAME}] (https://t.me/ {BOT_USERNAME}) يتيح لك تشغيل الموسيقى في مجموعات من خلال الدردشات الصوتية الجديدة في Telegram! **
 
 🎸 ** اكتشف جميع أوامر الروبوت وكيفية عملها من خلال النقر على زر »📚 الأوامر! **
 
- **لمعرفة كيفية استخدام هذا الروبوت ، يرجى النقر فوق »🔮︙دليل الاستخدام! **
+ **لمعرفة كيفية استخدام هذا الروبوت ، يرجى النقر فوق »🗼︙دليل الاستخدام! **
 </ b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "🧸︙ أضفني إلى مجموعتك", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "🎯︙ أضفني إلى مجموعتك", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "🔮︙ الاستخدام", callback_data="cbhowtouse")
+                        "🗼︙دليل الاستخدام", callback_data="cbhowtouse")
                 ],[
                     InlineKeyboardButton(
-                         "📚︙ الأوامر", callback_data="cbcmds"
+                         "📚 الأوامر", callback_data="cbcmds"
                     ),
                     InlineKeyboardButton(
-                        "🖤︙ مطور السورس", url=f"https://t.me/{OWNER_NAME}")
+                        "🐉︙مطور السورس", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "🏆︙ جيت هاب نينجا", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "📁︙ملفات السورس", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "🖤︙ - RoLeS ›", url=f"https://t.me/{UPDATES_CHANNEL}")
+                        "🐉︙ديترويت", url=f"https://t.me/{UPDATES_CHANNEL}")
                 ],
             ]
         ),
@@ -77,10 +77,10 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🏆︙ جيت هاب نينجا", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "📁︙ملفات السورس", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "🖤︙ - RoLeS ›", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "🐉︙ديترويت", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
@@ -95,7 +95,7 @@ async def help(client: Client, message: Message):
 
 **يرجى الضغط على الزر أدناه لقراءة الشرح والاطلاع على قائمة الأوامر المتاحة!**
 
-✨ __ بدعم من {BOT_NAME} A.I__""",
+🎪 __ بدعم من {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -114,7 +114,7 @@ async def help_(client: Client, message: Message):
 
 **في هذه القائمة ، يمكنك فتح العديد من قوائم الأوامر المتاحة ، وفي كل قائمة أوامر يوجد أيضًا شرح موجز لكل أمر**
 
-✨ __ بدعم من {BOT_NAME} A.I__""",
+🎪 __ بدعم من {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -122,20 +122,20 @@ async def help_(client: Client, message: Message):
                         "📍︙الاوامر الاساسيه", callback_data="cbbasic"
                     ),
                     InlineKeyboardButton(
-                        "💻︙الاوامر المتقدمه", callback_data="cbadvanced"
+                        "🗽︙الاوامر المتقدمه", callback_data="cbadvanced"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💡︙اوامر الادمنيه", callback_data="cbadmin"
+                        "📘 🦹🏻︙اوامر الادمنيه", callback_data="cbadmin"
                     ),
                     InlineKeyboardButton(
-                        "🖤︙اوامر المطورين", callback_data="cbsudo"
+                        "🐉︙اوامر المطورين", callback_data="cbsudo"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "🔮︙اوامر نينجا", callback_data="cbowner"
+                        "🗼︙اوامر المالك", callback_data="cbowner"
                     )
                 ],
                 
