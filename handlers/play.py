@@ -579,40 +579,50 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
-          results = YoutubeSearch(query, max_results=5).to_dict()
+            results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-          await lel.edit("🍥 **لم يتم اكتشاف اسم الأغنية ** \ n \ n »** يرجى تقديم اسم الأغنية التي تريد تشغيلها**")
-        # veez project
+            await lel.edit(
+                "😕 **song name not detected**\n\n» **please provide the name of the song you want to play**"
+            )
         try:
             toxxt = "\n"
             j = 0
             user = user_name
-            emojilist = ["< 1 >","< 2 >","< 3 >","< 4 >","< 5 >"]
+            emojilist = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣"]
             while j < 5:
-                toxxt += f"{emojilist[j]} [{results[j][ title ][:25]}...](https://youtube.com{results[j][ url_suffix ]})\n"
-                toxxt += f"  VO!CE T!me➧:** - {results[j][ duration ]}\n"
-                toxxt += f"  JO!N ➧: @DD0DD\n ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n"
-                j += 1            
+                toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}...](https://youtube.com{results[j]['url_suffix']})\n"
+                toxxt += f" ├ 💡 **Duration** - `{results[j]['duration']}`\n"
+                toxxt += f" └ ⚡ __Powered by {BOT_NAME}__\n\n"
+                j += 1
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("< 1 >", callback_data=f plll 0|{query}|{user_id} ),
-                        InlineKeyboardButton("< 2 >", callback_data=f plll 1|{query}|{user_id} ),
-                        InlineKeyboardButton("< 3 >", callback_data=f plll 2|{query}|{user_id} ),
+                        InlineKeyboardButton(
+                            "1️⃣", callback_data=f"plll 0|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "2️⃣", callback_data=f"plll 1|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "3️⃣", callback_data=f"plll 2|{query}|{user_id}"
+                        ),
                     ],
                     [
-                        InlineKeyboardButton("< 4 >", callback_data=f plll 3|{query}|{user_id} ),
-                        InlineKeyboardButton("< 5 >", callback_data=f plll 4|{query}|{user_id} ),
+                        InlineKeyboardButton(
+                            "4️⃣", callback_data=f"plll 3|{query}|{user_id}"
+                        ),
+                        InlineKeyboardButton(
+                            "5️⃣", callback_data=f"plll 4|{query}|{user_id}"
+                        ),
                     ],
-                    [InlineKeyboardButton(text="🔻الغاء", callback_data="cls")],
+                    [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
                 ]
             )
             await message.reply_photo(
                 photo=f"{THUMB_IMG}",
                 caption=toxxt,
-                reply_markup=keyboard
+                reply_markup=keyboard,
             )
-
             await lel.delete()
             # hama project
             return
